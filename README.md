@@ -1,0 +1,1 @@
+# Reclip-macOS-Clipboard-History-Manager-
