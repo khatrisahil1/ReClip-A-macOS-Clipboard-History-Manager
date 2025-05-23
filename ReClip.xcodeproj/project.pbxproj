@@ -468,7 +468,7 @@
 		DABDE97E2974706C005B32E9 /* KeyboardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayout.swift; sourceTree = "<group>"; };
 		DAC14123232367B200FCFA30 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		DAC929D6297A0E8B00814F19 /* NSPasteboard.PasteboardType+Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPasteboard.PasteboardType+Types.swift"; sourceTree = "<group>"; };
-		DACCD5822C93605C00BAD74C /* Maccy.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Maccy.xctestplan; sourceTree = "<group>"; };
+		DACCD5822C93605C00BAD74C /* ReClip.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReClip.xctestplan; sourceTree = "<group>"; };
 		DAD665652898A1C000975096 /* KeyChord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChord.swift; sourceTree = "<group>"; };
 		DADFF1382C2F58D000DB261D /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DAE284FF232257D20080E394 /* ColorImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorImage.swift; sourceTree = "<group>"; };
@@ -572,12 +572,12 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		DA0EE7B7204657830025FC60 /* MaccyUITests */ = {
+		DA0EE7B7204657830025FC60 /* ReClipUITests */ = {
 			isa = PBXGroup;
 			children = (
 				DA0EE7B8204657830025FC60 /* MaccyUITests.swift */,
 			);
-			path = MaccyUITests;
+			path = ReClipUITests;
 			sourceTree = "<group>";
 		};
 		DA181178247D150B00066D55 /* Settings */ = {
@@ -633,7 +633,7 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
-		DA360DB11E3DF137005C6F6B /* MaccyTests */ = {
+		DA360DB11E3DF137005C6F6B /* ReClipTests */ = {
 			isa = PBXGroup;
 			children = (
 				DA48AE852A5F0077006D4894 /* Fixtures */,
@@ -646,7 +646,7 @@
 				DA696BD12401EEE900DE80CF /* SorterTests.swift */,
 				DA360DB41E3DF137005C6F6B /* Info.plist */,
 			);
-			path = MaccyTests;
+			path = ReClipTests;
 			sourceTree = "<group>";
 		};
 		DA3BCB902C3EEC1000B01BC1 /* Observables */ = {
@@ -697,10 +697,10 @@
 		DAEE383A1E3DBEB100DD2966 = {
 			isa = PBXGroup;
 			children = (
-				DAEE38451E3DBEB100DD2966 /* Maccy */,
-				DA360DB11E3DF137005C6F6B /* MaccyTests */,
-				DA0EE7B7204657830025FC60 /* MaccyUITests */,
-				DACCD5822C93605C00BAD74C /* Maccy.xctestplan */,
+				DAEE38451E3DBEB100DD2966 /* ReClip */,
+				DA360DB11E3DF137005C6F6B /* ReClipTests */,
+				DA0EE7B7204657830025FC60 /* ReClipUITests */,
+				DACCD5822C93605C00BAD74C /* ReClip.xctestplan */,
 				DA00992C256411F90030E697 /* appcast.xml */,
 				DA00992F256411F90030E697 /* LICENSE */,
 				DA00992D256411F90030E697 /* README.md */,
@@ -719,7 +719,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DAEE38451E3DBEB100DD2966 /* Maccy */ = {
+		DAEE38451E3DBEB100DD2966 /* ReClip */ = {
 			isa = PBXGroup;
 			children = (
 				2FBB7A252B5FECBB00C65BBE /* Extensions */,
@@ -759,7 +759,7 @@
 				DA6373971E4AB9BB00263391 /* Assets.xcassets */,
 				4762D6992467226100B3A2BA /* Localizable.strings */,
 			);
-			path = Maccy;
+			path = ReClip;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -860,7 +860,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DAEE383E1E3DBEB100DD2966 /* Build configuration list for PBXProject "Maccy" */;
+			buildConfigurationList = DAEE383E1E3DBEB100DD2966 /* Build configuration list for PBXProject "ReClip" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1681,7 +1681,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		DAEE383E1E3DBEB100DD2966 /* Build configuration list for PBXProject "Maccy" */ = {
+		DAEE383E1E3DBEB100DD2966 /* Build configuration list for PBXProject "ReClip" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DAEE384E1E3DBEB100DD2966 /* Debug */,
