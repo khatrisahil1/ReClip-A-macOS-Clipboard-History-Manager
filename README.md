@@ -1,20 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <<<<<<< HEAD
 # ReClip – macOS Clipboard History Manager
 
