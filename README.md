@@ -2,7 +2,11 @@
 # ReClip – macOS Clipboard History Manager
 
 **ReClip** is a modern clipboard manager for macOS, built using Swift and AppKit.  
+<<<<<<< HEAD
 ReClip is a lightweight and fast tool that lives in your menu bar and keeps track of your clipboard history — with clean UX and future-ready customizations.
+=======
+ReClip is a lightweight and fast tool that lives in your menu bar and keeps track of your clipboard history, with clean UX and future-ready customizations.
+>>>>>>> 1083fa0a0e652ed57f6284ca932622ccd6a8b9ce
 
 ## Features
 - 📋 Clipboard history
