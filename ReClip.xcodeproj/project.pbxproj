@@ -464,7 +464,7 @@
 		DAB6266D2CAD7FCF001B720E /* lv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lv; path = lv.lproj/StorageSettings.strings; sourceTree = "<group>"; };
 		DAB6266E2CAD7FD6001B720E /* lv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lv; path = lv.lproj/PreviewItemView.strings; sourceTree = "<group>"; };
 		DAB6266F2CAD7FDA001B720E /* lv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lv; path = lv.lproj/Localizable.strings; sourceTree = "<group>"; };
-		DAB8CE4024E3677F00A2500E /* Maccy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Maccy.entitlements; sourceTree = "<group>"; };
+		DAB8CE4024E3677F00A2500E /* ReClip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReClip.entitlements; sourceTree = "<group>"; };
 		DABDE97E2974706C005B32E9 /* KeyboardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayout.swift; sourceTree = "<group>"; };
 		DAC14123232367B200FCFA30 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		DAC929D6297A0E8B00814F19 /* NSPasteboard.PasteboardType+Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPasteboard.PasteboardType+Types.swift"; sourceTree = "<group>"; };
@@ -754,7 +754,7 @@
 				DA696BCD240177E800DE80CF /* Sorter.swift */,
 				DA243D132C2F66DD0012A27F /* Storage.swift */,
 				DA81D673252A056B009977BC /* Throttler.swift */,
-				DAB8CE4024E3677F00A2500E /* Maccy.entitlements */,
+				DAB8CE4024E3677F00A2500E /* ReClip.entitlements */,
 				DAEE384D1E3DBEB100DD2966 /* Info.plist */,
 				DA6373971E4AB9BB00263391 /* Assets.xcassets */,
 				4762D6992467226100B3A2BA /* Localizable.strings */,
