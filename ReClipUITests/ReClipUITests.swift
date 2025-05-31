@@ -3,7 +3,7 @@ import XCTest
 
 // swiftlint:disable file_length
 // swiftlint:disable type_body_length
-class MaccyUITests: XCTestCase {
+class ReClipUITests: XCTestCase {
   let app = XCUIApplication()
   let pasteboard = NSPasteboard.general
 
@@ -373,7 +373,7 @@ class MaccyUITests: XCTestCase {
 
   private func waitUntilPoppedUp() {
     if !app.staticTexts.firstMatch.waitForExistence(timeout: 3) {
-      XCTFail("Maccy did not pop up")
+      XCTFail("ReClip did not pop up")
     }
   }
 
@@ -404,7 +404,7 @@ class MaccyUITests: XCTestCase {
     waitTillClipboardCheck()
   }
 
-  // Default interval for Maccy to check clipboard is 1 second
+  // Default interval for ReClip to check clipboard is 1 second
   private func waitTillClipboardCheck() {
     usleep(1_500_000)
   }
