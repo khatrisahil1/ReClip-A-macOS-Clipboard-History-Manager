@@ -1,5 +1,3 @@
-
-```markdown
 <h1 align="center">
   🚀 ReClip – macOS Clipboard History Manager
 </h1>
