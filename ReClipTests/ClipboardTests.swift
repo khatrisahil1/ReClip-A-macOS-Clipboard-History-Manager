@@ -1,6 +1,6 @@
 import XCTest
 import Defaults
-@testable import Maccy
+@testable import ReClip
 
 // swiftlint:disable type_body_length
 class ClipboardTests: XCTestCase {
@@ -11,7 +11,7 @@ class ClipboardTests: XCTestCase {
                                          attributes: [.foregroundColor: NSColor.red])
 
   let dynamicType = NSPasteboard.PasteboardType(rawValue: "dyn.ah62d4qmxhk4d425try1g44pdsm11g55gsu1e82xnqzv")
-  let customType = NSPasteboard.PasteboardType(rawValue: "org.maccy.ConfidentialType")
+  let customType = NSPasteboard.PasteboardType(rawValue: "org.ReClip.ConfidentialType")
   let fileURLType = NSPasteboard.PasteboardType.fileURL
   let htmlType = NSPasteboard.PasteboardType.html
   let rtfType = NSPasteboard.PasteboardType.rtf
@@ -218,7 +218,7 @@ class ClipboardTests: XCTestCase {
     XCTAssertEqual(pasteboard.string(forType: .string), "foo")
     XCTAssertEqual(pasteboard.data(forType: .tiff), imageData)
     XCTAssertEqual(pasteboard.string(forType: .fileURL), "file://foo.bar")
-    XCTAssertEqual(pasteboard.string(forType: .fromMaccy), "")
+    XCTAssertEqual(pasteboard.string(forType: .fromReClip), "")
     XCTAssertEqual(pasteboard.string(forType: .source), "com.foo.bar")
   }
 
@@ -237,7 +237,7 @@ class ClipboardTests: XCTestCase {
     item.application = "com.foo.bar"
     clipboard.copy(item, removeFormatting: true)
     XCTAssertEqual(pasteboard.string(forType: .string), "foo")
-    XCTAssertEqual(pasteboard.string(forType: .fromMaccy), "")
+    XCTAssertEqual(pasteboard.string(forType: .fromReClip), "")
     XCTAssertEqual(pasteboard.string(forType: .source), "com.foo.bar")
     XCTAssertEqual(pasteboard.string(forType: .fileURL), "file://foo.bar")
     XCTAssertNil(pasteboard.data(forType: .rtf))
@@ -317,4 +317,4 @@ class ClipboardTests: XCTestCase {
     waitForExpectations(timeout: 2)
   }
 }
-// swiftlint:enable type_body_length
+
