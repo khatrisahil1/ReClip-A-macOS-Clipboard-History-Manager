@@ -95,7 +95,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     panel = FloatingPanel(
       contentRect: NSRect(origin: .zero, size: Defaults[.windowSize]),
-      identifier: Bundle.main.bundleIdentifier ?? "org.p0deje.Maccy",
+      identifier: Bundle.main.bundleIdentifier ?? "com.khatrisahil.reclip",
       statusBarButton: statusItem.button
     ) {
       ContentView()
@@ -129,13 +129,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       Defaults[.migrations]["2024-07-01-version-2"] = true
     }
 
-    // The following defaults are not used in Maccy 2.x
-    // and should be removed in 3.x.
-    // - LaunchAtLogin__hasMigrated
-    // - avoidTakingFocus
-    // - saratovSeparator
-    // - maxMenuItemLength
-    // - maxMenuItems
+  
+  
   }
 
   @objc
