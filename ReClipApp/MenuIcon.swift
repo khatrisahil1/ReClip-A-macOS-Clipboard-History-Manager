@@ -2,7 +2,7 @@ import AppKit
 import Defaults
 
 enum MenuIcon: String, CaseIterable, Identifiable, Defaults.Serializable {
-  case maccy
+  case ReClip
   case clipboard
   case scissors
   case paperclip
@@ -11,8 +11,8 @@ enum MenuIcon: String, CaseIterable, Identifiable, Defaults.Serializable {
 
   var image: NSImage {
     switch self {
-    case .maccy:
-      return NSImage(named: .maccyStatusBar)!
+    case .ReClip:
+      return NSImage(named: .ReClipStatusBar)!
     case .clipboard:
       return NSImage(named: .clipboard)!
     case .scissors:
