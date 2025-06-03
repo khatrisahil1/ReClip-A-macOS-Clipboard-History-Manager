@@ -15,9 +15,9 @@
       }
     ],
     "targetForVariableExpansion" : {
-      "containerPath" : "container:Maccy.xcodeproj",
+      "containerPath" : "container:ReClip.xcodeproj",
       "identifier" : "DAEE38421E3DBEB100DD2966",
-      "name" : "Maccy"
+      "name" : "ReClip"
     },
     "testRepetitionMode" : "retryOnFailure"
   },
@@ -26,7 +26,7 @@
       "skippedTests" : [
         "HistoryTests",
         "HistoryTests\/testAdding()",
-        "HistoryTests\/testAddingItemFromMaccy()",
+        "HistoryTests\/testAddingItemFromReClip()",
         "HistoryTests\/testAddingItemThatIsSupersededByExisting()",
         "HistoryTests\/testAddingItemWithDifferentModifiedType()",
         "HistoryTests\/testAddingSame()",
@@ -40,16 +40,16 @@
         "HistoryTests\/testRemoving()"
       ],
       "target" : {
-        "containerPath" : "container:Maccy.xcodeproj",
+        "containerPath" : "container:ReClip.xcodeproj",
         "identifier" : "DA360DAF1E3DF137005C6F6B",
-        "name" : "MaccyTests"
+        "name" : "ReClipTests"
       }
     },
     {
       "target" : {
-        "containerPath" : "container:Maccy.xcodeproj",
+        "containerPath" : "container:ReClip.xcodeproj",
         "identifier" : "DA0EE7B5204657830025FC60",
-        "name" : "MaccyUITests"
+        "name" : "ReClipUITests"
       }
     }
   ],
