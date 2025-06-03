@@ -173,7 +173,7 @@ class Clipboard {
     }
 
     // Some applications (BBEdit, Edge) add 2 items to pasteboard when copying
-    // so it's better to merge all data into a single record.
+
 
     var contents = [HistoryItemContent]()
     pasteboard.pasteboardItems?.forEach({ item in
