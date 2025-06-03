@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
-    <title>Maccy</title>
-    <link>https://raw.githubusercontent.com/p0deje/Maccy/master/appcast.xml</link>
+    <title>ReClip</title>
+    <link>https://raw.githubusercontent.com/khatrisahil1/ReClip/master/appcast.xml</link>
     <description>Most recent changes with links to updates.</description>
     <language>en</language>
     <item>
@@ -23,10 +23,10 @@
         ]]>
       </description>
       <pubDate>2024-12-11</pubDate>
-      <releaseNotesLink>https://github.com/p0deje/Maccy/releases/tag/2.3.0</releaseNotesLink>
+      <releaseNotesLink>https://github.com/khatrisahil1/ReClip/releases/tag/2.3.0</releaseNotesLink>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <enclosure
-        url="https://github.com/p0deje/Maccy/releases/download/2.3.0/Maccy.app.zip"
+        url="https://github.com/khatrisahil1/ReClip/releases/download/2.3.0/ReClip.app.zip"
         sparkle:version="54"
         sparkle:shortVersionString="2.3.0"
         length="0"
