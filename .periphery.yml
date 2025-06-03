@@ -1,6 +1,6 @@
-project: Maccy.xcodeproj
+project: ReClip.xcodeproj
 retain_objc_accessible: true
 schemes:
-- Maccy
+- ReClip
 targets:
-- Maccy
+- ReClip
