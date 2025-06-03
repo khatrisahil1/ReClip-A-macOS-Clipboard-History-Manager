@@ -86,9 +86,7 @@ class Clipboard {
       pasteboard.setData(content.value, forType: NSPasteboard.PasteboardType(content.type))
     }
 
-    // Use writeObjects for file URLs so that multiple files that are copied actually work.
-    // Only do this for file URLs because it causes an issue with some other data types (like formatted text)
-    // where the item is pasted more than once.
+   
     let fileURLItems: [NSPasteboardItem] = contents.compactMap { item in
       guard item.type == NSPasteboard.PasteboardType.fileURL.rawValue else { return nil }
       guard let value = item.value else { return nil }
@@ -98,7 +96,7 @@ class Clipboard {
     }
     pasteboard.writeObjects(fileURLItems)
 
-    pasteboard.setString("", forType: .fromMaccy)
+    pasteboard.setString("", forType: .fromReClip)
     pasteboard.setString(item.application ?? "", forType: .source)
     sync()
 
@@ -119,7 +117,7 @@ class Clipboard {
 
     // Force QWERTY keycode when keyboard layout switches to
     // QWERTY upon pressing ⌘ key (e.g. "Dvorak - QWERTY ⌘").
-    // See https://github.com/p0deje/Maccy/issues/482 for details.
+
     if KeyboardLayout.current.commandSwitchesToQWERTY && cmdFlag.contains(.maskCommand) {
       vCode = KeyChord.pasteKey.QWERTYKeyCode
     }
@@ -165,7 +163,7 @@ class Clipboard {
 
     // Reading types on NSPasteboard gives all the available
     // types - even the ones that are not present on the NSPasteboardItem.
-    // See https://github.com/p0deje/Maccy/issues/241.
+
     if shouldIgnore(Set(pasteboard.types ?? [])) {
       return
     }
@@ -176,8 +174,7 @@ class Clipboard {
 
     // Some applications (BBEdit, Edge) add 2 items to pasteboard when copying
     // so it's better to merge all data into a single record.
-    // - https://github.com/p0deje/Maccy/issues/78
-    // - https://github.com/p0deje/Maccy/issues/472
+
     var contents = [HistoryItemContent]()
     pasteboard.pasteboardItems?.forEach({ item in
       var types = Set(item.types)
@@ -195,8 +192,7 @@ class Clipboard {
         .filter { !$0.rawValue.starts(with: microsoftSourcePrefix) }
 
       // Avoid reading Microsoft Word links from bookmarks and cross-references.
-      // https://github.com/p0deje/Maccy/issues/613
-      // https://github.com/p0deje/Maccy/issues/770
+
       if types.isSuperset(of: [.microsoftLinkSource, .microsoftObjectLink]) {
         types = types.subtracting([.microsoftLinkSource, .microsoftObjectLink, .pdf])
       }
@@ -276,9 +272,7 @@ class Clipboard {
     return false
   }
 
-  // Some applications requires window be unfocused and focused back to sync the clipboard.
-  // - Chrome Remote Desktop (https://github.com/p0deje/Maccy/issues/948)
-  // - Netbeans (https://github.com/p0deje/Maccy/issues/879)
+ 
   private func sync() {
     guard let app = sourceApp,
           app.bundleURL?.lastPathComponent == "Chrome Remote Desktop.app" ||
@@ -300,7 +294,7 @@ class Clipboard {
       newContents = stringContents
 
       // Preserve file URLs.
-      // https://github.com/p0deje/Maccy/issues/962
+
       let fileURLContents = contents.filter { NSPasteboard.PasteboardType($0.type) == .fileURL }
       if !fileURLContents.isEmpty {
         newContents += fileURLContents
