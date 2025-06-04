@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DAEE38421E3DBEB100DD2966"
-               BuildableName = "Maccy.app"
-               BlueprintName = "Maccy"
-               ReferencedContainer = "container:Maccy.xcodeproj">
+               BuildableName = "ReClip.app"
+               BlueprintName = "ReClip"
+               ReferencedContainer = "container:ReClip.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -30,7 +30,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Maccy.xctestplan"
+            reference = "container:ReClip.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
@@ -40,9 +40,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DA360DAF1E3DF137005C6F6B"
-               BuildableName = "MaccyTests.xctest"
-               BlueprintName = "MaccyTests"
-               ReferencedContainer = "container:Maccy.xcodeproj">
+               BuildableName = "ReClipTests.xctest"
+               BlueprintName = "ReClipTests"
+               ReferencedContainer = "container:ReClip.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -50,9 +50,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DA0EE7B5204657830025FC60"
-               BuildableName = "MaccyUITests.xctest"
-               BlueprintName = "MaccyUITests"
-               ReferencedContainer = "container:Maccy.xcodeproj">
+               BuildableName = "ReClipUITests.xctest"
+               BlueprintName = "ReClipUITests"
+               ReferencedContainer = "container:ReClip.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DAEE38421E3DBEB100DD2966"
-            BuildableName = "Maccy.app"
-            BlueprintName = "Maccy"
-            ReferencedContainer = "container:Maccy.xcodeproj">
+            BuildableName = "ReClip.app"
+            BlueprintName = "ReClip"
+            ReferencedContainer = "container:ReClip.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -89,9 +89,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DAEE38421E3DBEB100DD2966"
-            BuildableName = "Maccy.app"
-            BlueprintName = "Maccy"
-            ReferencedContainer = "container:Maccy.xcodeproj">
+            BuildableName = "ReClip.app"
+            BlueprintName = "ReClip"
+            ReferencedContainer = "container:ReClip.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
