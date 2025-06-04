@@ -11,7 +11,7 @@ extension NSImage {
 
 extension NSImage.Name {
   static let clipboard = NSImage.Name("clipboard.fill")
-  static let maccyStatusBar = NSImage.Name("StatusBarMenuImage")
+  static let reclipStatusBar = NSImage.Name("StatusBarMenuImage")
   static let scissors = NSImage.Name("scissors")
   static let paperclip = NSImage.Name("paperclip")
 }
