@@ -1,129 +1,138 @@
-# 🚀 ReClip – macOS Clipboard History Manager
+# 🚀 ReClip – A macOS Clipboard Manager
 
-**Elevate Your Clipboard 🚀**  
-A sleek, open-source, menu-bar style clipboard manager for macOS, built with Swift & AppKit. Access your copy history instantly via hotkeys (⌘ + ⌥ + V) and quick search, designed for productivity.
+A sleek, open-source clipboard history manager for macOS that lives in your menu bar. Built with modern Swift and SwiftUI, ReClip is designed for productivity, giving you instant access to your copy history.
 
----
+-----
 
 ## 📖 Table of Contents
-- [📌 Highlights](#-highlights)  
-- [🛠️ Features](#️-features)  
-- [🎬 Demo](#-demo)  
-- [⚙️ Requirements](#️-requirements)  
-- [🔧 Installation](#-installation)  
-- [🚀 Usage](#-usage)  
-- [🧪 Testing](#-testing)  
-- [📅 Roadmap](#-roadmap)  
-- [🤝 Contributing](#-contributing)  
-- [⚖️ License](#-license)  
-- [👤 Author](#-author)
 
----
+  - [Highlights](https://www.google.com/search?q=%23-highlights)
+  - [Features](https://www.google.com/search?q=%23%EF%B8%8F-features)
+  - [Demo](https://www.google.com/search?q=%23-demo)
+  - [Requirements](https://www.google.com/search?q=%23%EF%B8%8F-requirements)
+  - [Installation](https://www.google.com/search?q=%23-installation)
+  - [Usage](https://www.google.com/search?q=%23-usage)
+  - [Roadmap](https://www.google.com/search?q=%23-roadmap)
+  - [Contributing](https://www.google.com/search?q=%23-contributing)
+  - [License](https://www.google.com/search?q=%23%EF%B8%8F-license)
+  - [Author](https://www.google.com/search?q=%23-author)
 
-## 📌 Highlights
-- Lightweight menu-bar app for macOS clipboard history  [oai_citation:0‡github.com](https://github.com/khatrisahil1/ReClip-A-macOS-Clipboard-History-Manager?utm_source=chatgpt.com)  
-- Real-time search and instant access via hotkeys   
-- Designed with a clean and minimal native UI 
+-----
 
----
+## ✨ Highlights
+
+  - **Lightweight & Fast:** Lives in your menu bar without draining system resources.
+  - **Productivity-Focused:** Access your history instantly with a global hotkey and keyboard shortcuts.
+  - **Native Experience:** Designed with a clean and minimal UI that feels right at home on macOS.
+  - **Open Source:** Fully transparent and built with ❤️ for the macOS community.
+
+-----
 
 ## 🛠️ Features
-- **Clipboard History**: Tracks all types of copied content — text, code, links, images  
-- **Quick Access**: Menu-bar launcher + customizable global hotkeys  
-- **Instant Search**: Filter your clipboard history dynamically  
-- **Minimal Native UI**: Pure Swift & AppKit magic  
-- **Privacy First**: Everything stored locally  
-- **Open Source**: Fully transparent, community-driven project
 
----
+  - **Persistent History**: Automatically saves your text-based clipboard history.
+  - **Quick Access**: A menu-bar launcher and a default global hotkey (`⌘ + ⌥ + V`).
+  - **Instant Search**: Dynamically filter your entire clipboard history in real-time.
+  - **Pinning**: Pin your most frequently used items to the top of the list for easy access.
+  - **Keyboard Shortcuts**: Use `⌘1` through `⌘9` to instantly copy items without using your mouse.
+  - **Privacy First**: Everything is stored locally on your machine.
+
+-----
 
 ## 🎬 Demo
-*(insert animated GIF or screenshots here)*
 
----
+*(img)*
+
+-----
 
 ## ⚙️ Requirements
-- **macOS** 12.0+  
-- **Xcode** 15+  
 
----
+  - macOS 14.0+
+  - Xcode 15+ (to build from source)
+
+-----
 
 ## 🔧 Installation
 
-Clone the repo and set up dependencies:
+### Pre-built App
 
-```bash
-git clone https://github.com/khatrisahil1/ReClip-A-macOS-Clipboard-History-Manager.git
-cd ReClip-A-macOS-Clipboard-History-Manager
+You can download the latest version of `ReClip.app` from the [**Releases**](https://www.google.com/search?q=https://github.com/khatrisahil1/ReClip-A-macOS-Clipboard-History-Manager/releases) page.
 
-If you’re using CocoaPods:
+### Build from Source
 
-pod install
-open ReClip.xcworkspace
+If you prefer to build it yourself:
 
-Or simply open the .xcodeproj if dependencies are vendored.
-```
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/khatrisahil1/ReClip-A-macOS-Clipboard-History-Manager.git
+    ```
+2.  Navigate to the project directory:
+    ```bash
+    cd ReClip-A-macOS-Clipboard-History-Manager
+    ```
+3.  Open `ReClip.xcodeproj` in Xcode.
+4.  Press `Cmd + R` to build and run the application.
 
-⸻
+-----
 
-🚀 Usage
-	•	Build and run in Xcode, or install the released .app
-	•	Locate ReClip in the menu bar
-	•	Configure your launch-in-login and global hotkeys from Preferences
-	•	Use search and history list to re-copy items quickly
+## 🚀 Usage
 
-⸻
+1.  Launch ReClip. The clipboard icon will appear in your macOS menu bar.
+2.  Use the global hotkey **`Cmd + Option + V`** to show or hide the history window.
+3.  Click on any item in the list to copy it back to your clipboard.
+4.  Use the search bar at the top to filter items by content.
+5.  Press `⌘1` through `⌘9` to instantly copy the corresponding item.
+6.  Click the **pin icon** next to an item to keep it at the top of the list.
 
-🧪 Testing
+-----
 
-ReClip includes XCTest suites:
-```
-	•	Run tests via Xcode: Cmd + U
-	•	Or from terminal:
+## 📅 Roadmap
 
-xcodebuild test \
-  -scheme ReClip \
-  -destination 'platform=macOS'
-```
+This project is under active development. Here is the plan:
 
+### Version 1.0 (Completed)
 
-⸻
+  - ✅ Menu-bar launch & UI
+  - ✅ Persistent clipboard history for text
+  - ✅ Global hotkey access
+  - ✅ Instant search/filter
+  - ✅ Pinning items
+  - ✅ Indexed keyboard shortcuts (`⌘1`, etc.)
+  - ✅ UI Polish (hover effects, auto-close)
 
-📅 Roadmap
-	•	✅ Menu-bar launch
-	•	✅ Persistent clipboard history
-	•	🔲 Themes & dark mode
-  •	🔲 Export/import history
-	•	🔲 iCloud sync across devices (Coming Soon)
-	•	🔲 AI-powered tagging & summaries (Coming Soon)
+### Version 2.0 (Future)
 
-⸻
+  - 🔲 **Multimedia Support:** Track images, files, and rich content.
+  - 🔲 **Preferences Window:** Allow customization of hotkeys, history limit, etc.
+  - 🔲 **Themes:** Add support for Light/Dark mode and custom themes.
+  - 🔲 **iCloud Sync:** Sync your clipboard history across multiple Macs.
+  - 🔲 **AI Features:** Smart tagging and summarization of copied content.
 
-🤝 Contributing
+-----
 
-Your contributions are welcome! Here’s how to contribute:
-	1.	Fork the repo
-	2.	Create a feature branch: git checkout -b feature/my-feature
-	3.	Commit your changes: git commit -am 'Add feature'
-	4.	Push to the branch: git push origin feature/my-feature
-	5.	Open a pull request
+## 🤝 Contributing
 
-Please follow the existing style, run unit tests, and add documentation where needed.
+Your contributions are always welcome\! Here’s how you can help:
 
-⸻
+1.  Fork the repository.
+2.  Create your feature branch: `git checkout -b feature/MyNewFeature`
+3.  Commit your changes: `git commit -am 'Add some new feature'`
+4.  Push to the branch: `git push origin feature/MyNewFeature`
+5.  Open a Pull Request.
 
-⚖️ License
+-----
 
-This project is released under the MIT License. See LICENSE for details.
+## ⚖️ License
 
-⸻
+This project is released under the **MIT License**. See the `LICENSE` file for more details.
 
-👤 Author
+-----
 
-Sahil Khatri
-	•	GitHub: @khatrisahil1
-	•	Twitter: @khatrisahil821 
-	•	Built with ❤️ for the macOS community
+## 👤 Author
 
-⸻
+**Sahil Khatri**
+
+  - **GitHub:** [@khatrisahil1](https://www.google.com/search?q=https://github.com/khatrisahil1)
+  - **Twitter:** [@khatrisahil821](https://twitter.com/khatrisahil821)
+
 
