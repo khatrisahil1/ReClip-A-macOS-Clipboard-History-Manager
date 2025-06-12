@@ -39,9 +39,14 @@ A sleek, open-source clipboard history manager for macOS that lives in your menu
 
 -----
 
-## 🎬 Demo
+## 🎬 Snapshot of ReClip
 
-*(img)*
+* 
+<img width="1440" alt="Screenshot 2025-06-12 at 10 21 00 AM" src="https://github.com/user-attachments/assets/2103c1f4-1a55-4f12-bb96-ee4ff23c13f7" />
+<img width="461" alt="Screenshot 2025-06-12 at 4 56 08 PM" src="https://github.com/user-attachments/assets/f2fb812c-f356-4f44-aa73-ad077b8fb534" />
+<img width="497" alt="454231799-03aec5c3-9612-4be0-85cc-b818c628a6ba" src="https://github.com/user-attachments/assets/352b324b-b503-4ec2-9f1a-a5932664e178" />
+
+ *
 
 -----
 
