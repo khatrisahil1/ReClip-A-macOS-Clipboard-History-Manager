@@ -1,21 +1,73 @@
 import SwiftUI
 
+// This is the dedicated View for a single row in the list.
+struct ClipboardRowView: View {
+    let item: ClipboardItem
+    let index: Int
+
+    private var sourceAppIcon: NSImage {
+        guard let bundleID = item.sourceAppBundleID,
+              let appURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleID) else {
+            return NSImage(systemSymbolName: "doc", accessibilityDescription: "Default Icon")!
+        }
+        return NSWorkspace.shared.icon(forFile: appURL.path)
+    }
+
+    var body: some View {
+        HStack(spacing: 10) {
+            Image(nsImage: sourceAppIcon)
+                .resizable().aspectRatio(contentMode: .fit).frame(width: 24, height: 24)
+
+            VStack(alignment: .leading) {
+                // This switch correctly displays a text preview or an image thumbnail.
+                switch item.content {
+                case .text(let text):
+                    Text(text).lineLimit(1).truncationMode(.tail)
+                case .image:
+                    if let nsImage = item.image {
+                        Image(nsImage: nsImage)
+                            .resizable().scaledToFill().frame(width: 50, height: 28).clipped().cornerRadius(4)
+                    } else {
+                        Text("Invalid Image").foregroundColor(.secondary)
+                    }
+                }
+            }
+
+            Spacer()
+
+            if index < 9 {
+                Text("⌘\(index + 1)").foregroundColor(.secondary)
+            }
+
+            if item.isPinned {
+                Image(systemName: "pin.fill")
+                    .foregroundColor(Color(NSColor.controlAccentColor))
+                    .padding(.leading, 4)
+            }
+        }
+        .padding(EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12))
+        .cornerRadius(6)
+    }
+}
+
+
+// This is the main view for the popover.
 struct ClipboardHistoryView: View {
-    
+
     @StateObject private var clipboardManager = ClipboardManager()
     @State private var searchText = ""
-    @State private var hoveredItemId: UUID?
-    
+    @State private var selectedItemId: UUID?
+
     var closePopover: () -> Void = {}
-    
+    var openPreferences: () -> Void = {}
+
     var body: some View {
         VStack(spacing: 0) {
-            
             TextField("Search clipboard...", text: $searchText)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.horizontal, 10)
                 .padding(.vertical, 8)
-            
+
             if filteredHistory.isEmpty {
                 VStack {
                     Spacer()
@@ -23,84 +75,62 @@ struct ClipboardHistoryView: View {
                         .font(.headline)
                         .foregroundColor(.secondary)
                     Spacer()
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-
+                }.frame(maxWidth: .infinity)
             } else {
-                ScrollView {
-                    LazyVStack(spacing: 0) {
-                        ForEach(Array(filteredHistory.enumerated()), id: \.element.id) { index, item in
-                            Button(action: {
-                                clipboardManager.copyToClipboard(text: item.text)
-                                closePopover()
-                            }) {
-                                HStack {
-                                    Text(item.text)
-                                        .lineLimit(2)
-                                        .truncationMode(.tail)
-                                        .foregroundColor(.primary)
-                                    
-                                    Spacer()
-                                    
-                                    if index < 9 {
-                                        Text("⌘\(index + 1)")
-                                            .foregroundColor(.secondary)
-                                            .padding(.horizontal, 6)
-                                            .padding(.vertical, 2)
-                                            .background(Color.white.opacity(0.05))
-                                            .cornerRadius(4)
-                                    }
-                                    
-                                    Button(action: {
-                                        clipboardManager.togglePin(for: item)
-                                    }) {
-                                        Image(systemName: item.isPinned ? "pin.fill" : "pin")
-                                            .foregroundColor(item.isPinned ? Color(NSColor.controlAccentColor) : .secondary)
-                                    }
-                                    .buttonStyle(.plain)
-                                    .padding(.leading, 4)
+                List(selection: $selectedItemId) {
+                    ForEach(filteredHistory, id: \.element.id) { index, item in
+                        ClipboardRowView(item: item, index: index)
+                            .tag(item.id)
+                            .contextMenu {
+                                Button(action: { /* Quick Look will go here */ }) {
+                                    Label("Quick Look", systemImage: "eye")
                                 }
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12))
-                                .background(hoveredItemId == item.id ? Color.white.opacity(0.1) : Color.clear)
-                                .cornerRadius(6)
-                            }
-                            .buttonStyle(.plain)
-                            .onHover { isHovering in
-                                withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
-                                    if isHovering { self.hoveredItemId = item.id }
-                                    else { self.hoveredItemId = nil }
+                                .keyboardShortcut("q", modifiers: .option)
+                                
+                                Divider()
+
+                                Button(action: { clipboardManager.togglePin(for: item) }) {
+                                    Label(item.isPinned ? "Unpin" : "Pin", systemImage: "pin")
+                                }
+                                
+                                Button(role: .destructive, action: { clipboardManager.deleteItem(with: item.id) }) {
+                                    Label("Delete", systemImage: "trash")
                                 }
                             }
-                            .if(index < 9) { view in
-                                view.keyboardShortcut(KeyEquivalent(Character("\(index + 1)")), modifiers: .command)
-                            }
-                            
-                            if item.id != filteredHistory.last?.id {
-                                Rectangle()
-                                    .frame(height: 1)
-                                    .foregroundColor(Color.white.opacity(0.1))
-                                    .padding(.horizontal)
-                            }
-                        }
                     }
-                    .padding(.vertical, 4)
                 }
-                .onChange(of: hoveredItemId) { oldId, newId in
+                .listStyle(.plain)
+                .onChange(of: selectedItemId) { _, newId in
                     if newId != nil {
                         NSHapticFeedbackManager.defaultPerformer.perform(.generic, performanceTime: .default)
                     }
                 }
+                .keyboardShortcut("p", modifiers: .option) {
+                    if let selectedId = selectedItemId, let item = clipboardManager.history.first(where: { $0.id == selectedId }) {
+                        clipboardManager.togglePin(for: item)
+                    }
+                }
+                .keyboardShortcut(.delete, modifiers: .option) {
+                    if let selectedId = selectedItemId {
+                        clipboardManager.deleteItem(with: selectedId)
+                    }
+                }
+                .onSubmit(of: .return) {
+                    if let selectedId = selectedItemId, let item = clipboardManager.history.first(where: { $0.id == selectedId }) {
+                        clipboardManager.copyItemToClipboard(item: item)
+                        closePopover()
+                    }
+                }
             }
-            
+
             Spacer(minLength: 0)
-            
+
             VStack(spacing: 0) {
                 Divider()
                 HStack {
-                    Text("\(clipboardManager.history.count) items")
-                        .font(.caption)
+                    Text("\(clipboardManager.history.count) items").font(.caption)
                     Spacer()
+                    Button("Preferences…") { openPreferences() }
                     Button("Clear") { clipboardManager.clearHistory() }
                     Button("Quit") { NSApplication.shared.terminate(nil) }
                 }
@@ -109,36 +139,33 @@ struct ClipboardHistoryView: View {
         }
         .frame(width: 380, height: 450)
     }
-    
-    // --- THIS IS THE FINAL CHANGE ---
-    var filteredHistory: [ClipboardItem] {
+
+    var filteredHistory: [(index: Int, element: ClipboardItem)] {
         let filtered = searchText.isEmpty ? clipboardManager.history : clipboardManager.history.filter {
-            $0.text.lowercased().contains(searchText.lowercased())
+            $0.previewText.lowercased().contains(searchText.lowercased())
         }
-        
-        // Now, sort the filtered list to bring pinned items to the top.
-        return filtered.sorted { (item1, item2) -> Bool in
-            // The sorting rule: if item1 is pinned and item2 is not, item1 comes first.
-            if item1.isPinned && !item2.isPinned {
-                return true
-            }
-            // In all other cases (both pinned, both unpinned, or item1 unpinned and item2 pinned),
-            // we don't reorder them, preserving the original chronological sort.
+
+        let sorted = filtered.sorted { (item1, item2) -> Bool in
+            if item1.isPinned && !item2.isPinned { return true }
             return false
         }
-    }
-}
 
-extension View {
-    @ViewBuilder func `if`<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {
-        if condition {
-            transform(self)
-        } else {
-            self
+        // The .map function ensures the return type has the correct (index:, element:) labels.
+        // This is the line that fixes all the compiler errors.
+        return sorted.enumerated().map { (index, element) in
+            return (index: index, element: element)
         }
     }
 }
 
+// This extension is required for the conditional .if modifier
+extension View {
+    @ViewBuilder func `if`<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {
+        if condition { transform(self) } else { self }
+    }
+}
+
+// The preview provider is required for the file to compile
 struct ClipboardHistoryView_Previews: PreviewProvider {
     static var previews: some View {
         ClipboardHistoryView()

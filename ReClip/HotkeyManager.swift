@@ -56,3 +56,4 @@ extension String {
         return self.utf16.reduce(0, {$0 << 8 + FourCharCode($1)})
     }
 }
+

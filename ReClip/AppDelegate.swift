@@ -1,12 +1,7 @@
-//
-//  AppDelegate.swift
-//  ReClip
-//
-//  Created by SAHIL KHATRI on 11/06/25.
-//
 import Cocoa
 import SwiftUI
 
+// This file is our main entry point and does not have @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     private var statusItem: NSStatusItem!
@@ -18,22 +13,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 
         if let button = statusItem.button {
-            // =================================================================
-            
-
             button.image = NSImage(systemSymbolName: "doc.on.clipboard", accessibilityDescription: "ReClip")
-            // =================================================================
-            
             button.action = #selector(togglePopover(_:))
         }
         
         self.popover = NSPopover()
         self.popover.behavior = .transient
-        // The new version passes the 'closePopover' action into the view.
-        // The [weak self] is important to prevent memory leaks.
-        self.popover.contentViewController = NSHostingController(rootView: ClipboardHistoryView(closePopover: { [weak self] in
-            self?.popover.performClose(nil)
-        }))
+        
+        // --- CHANGE 1: We now pass BOTH actions into our SwiftUI view ---
+        // This 'rootView' now knows how to close itself and how to open preferences.
+        let rootView = ClipboardHistoryView(
+            closePopover: { [weak self] in
+                self?.popover.performClose(nil)
+            },
+            openPreferences: { [weak self] in
+                self?.openPreferencesWindow()
+            }
+        )
+        self.popover.contentViewController = NSHostingController(rootView: rootView)
         self.popover.contentSize = NSSize(width: 380, height: 450)
         
         hotkeyManager = HotkeyManager { [weak self] in
@@ -50,5 +47,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
             popover.contentViewController?.view.window?.becomeKey()
         }
+    }
+    
+    // --- CHANGE 2: This is the new function that shows the window ---
+    @objc func openPreferencesWindow() {
+        // We close the main popover first for a cleaner user experience.
+        self.popover.performClose(nil)
+        
+        // We call the .show() method on the shared instance of our window controller.
+        PreferencesWindowController.shared.show()
     }
 }
